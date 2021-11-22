@@ -1,0 +1,294 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: lavenderblush;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Zilla Slab', serif;
+}
+
+nav {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+nav:nth-child(1) {
+    padding-left: 25px;
+}
+
+.navlink {
+    padding: 5px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 1.1em;
+    float: right;
+}
+
+.navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.1em;
+    width: 100px;
+    background-color: #641220;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+.navlink a:hover {
+    transition: background-color 0.4s ease;
+    background-color: #A11D33;
+}
+
+.content {
+    height: 375px;
+    width: 400px;
+    background-color: #F1A7B2;
+    margin: 0 auto;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 6px 4px rgba(0,0,0,.3), 3px 6px 10px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 15px;
+}
+
+.content h3 {
+    text-align: center;
+    margin: 0;
+}
+
+.content label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm, #signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button, .formSubmit {
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.2em;
+    width: 100px;
+    background-color: #641220;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: 'Zilla Slab', serif;
+}
+
+input {
+    font-family: 'Zilla Slab', serif;
+}
+
+.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+}
+
+.formSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #A11D33;
+}
+
+#user, #pass, #pass2 {
+    text-align: center;
+    font-size: 1.1em;
+    width: 180px;
+    border-radius: 6px;
+}
+
+#user:focus, #pass:focus, #pass2:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px #641220;
+}
+
+#blurbMessage {
+    display:none;
+    top: 250px;
+    width: 250px;
+    height: 650px;
+    position: absolute;
+    z-index: 200;
+    right: 0px;
+    overflow: hidden;
+}
+
+#blurbMessage h3 {
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+
+#game-content{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 22.5% 55% 22.5%;
+    grid-template-rows: 5% 41% 41% 8% 5%;
+}
+
+#left {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#right {
+    grid-column: 3;
+    grid-row: 1 / span 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#center {
+    grid-column: 2;
+    grid-row: 2 / span 3;
+    background-color: #F1A7B2;
+    box-shadow: 5px 0 4px rgba(0,0,0,.3), 3px 0 10px 0 rgba(0, 0, 0, 0.24), -5px 0 4px rgba(0,0,0,.3), -3px 0 10px 0 rgba(0, 0, 0, 0.24);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    border-radius: 15px;
+}
+
+#game {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 46% 46% 8%;
+}
+
+#game-board{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40% 20% 40%;
+    text-align: center;
+}
+
+#definition{
+    margin-left: 60px;
+    margin-right: 60px;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    font-weight: lighter;
+}
+
+#blanks{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+#scrabble {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#rhyme{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#game-controls {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 35% 35% 30%;
+    text-align: center;
+}
+
+#guessForm {
+    grid-column: 1 /span 2;
+    grid-row: 1;
+}
+
+#hintBtn {
+    grid-column: 1;
+    grid-row: 2;
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.1em;
+    width: 100px;
+    background-color: #641220;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    height: 35px;
+}
+
+#hintBtn:hover, #instructionBtn:hover{   
+    transition: background-color 0.4s ease;
+    background-color: #A11D33;
+}
+
+#instructionBtn {
+    grid-column: 2;
+    grid-row: 2;
+    height: 35px;
+    width: 120px;
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.1em;
+    background-color: #641220;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+#score {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#best {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.ad {
+    width: fit-content;
+}
