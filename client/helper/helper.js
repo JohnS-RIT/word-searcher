@@ -1,3 +1,4 @@
+//If errors, show message
 const handleError = (message) => {
     $("#errorMessage").text(message);
     $("#blurbMessage").animate({width:'toggle'},350);

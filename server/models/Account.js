@@ -8,6 +8,7 @@ const iterations = 10000;
 const saltLength = 64;
 const keyLength = 64;
 
+// Schema for accounts
 const AccountSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -39,6 +40,7 @@ AccountSchema.statics.toAPI = (doc) => ({
   _id: doc._id,
 });
 
+// Validate passwords
 const validatePassword = (doc, password, callback) => {
   const pass = doc.password;
 
@@ -50,6 +52,18 @@ const validatePassword = (doc, password, callback) => {
   });
 };
 
+AccountSchema.statics.validatePass = (doc, password, callback) => {
+  const pass = doc.password;
+
+  return crypto.pbkdf2(password, doc.salt, iterations, keyLength, 'RSA-SHA512', (err, hash) => {
+    if (hash.toString('hex') !== pass) {
+      return callback(false);
+    }
+    return callback(true);
+  });
+};
+
+// Find user and user's data based on username
 AccountSchema.statics.findByUserName = (name, callback) => {
   const search = {
     username: name,
@@ -58,12 +72,14 @@ AccountSchema.statics.findByUserName = (name, callback) => {
   return AccountModel.findOne(search, callback);
 };
 
+// Create hash for passwords
 AccountSchema.statics.generateHash = (password, callback) => {
   const salt = crypto.randomBytes(saltLength);
 
   crypto.pbkdf2(password, salt, iterations, keyLength, 'RSA-SHA512', (err, hash) => callback(salt, hash.toString('hex')));
 };
 
+// Ensure accounts are valid
 AccountSchema.statics.authenticate = (username, password, callback) => {
   AccountModel.findByUserName(username, (err, doc) => {
     if (err) { return callback(err); }
